@@ -7,16 +7,20 @@ import '../services/course_repository.dart';
 import 'course_screen.dart';
 
 class WeekScreen extends StatefulWidget {
-  const WeekScreen({super.key, required this.user});
+  const WeekScreen({super.key, required this.user, this.repo});
 
   final User user;
+
+  /// Leave null in the app. Tests pass their own (fake) repository.
+  final CourseRepository? repo;
 
   @override
   State<WeekScreen> createState() => _WeekScreenState();
 }
 
 class _WeekScreenState extends State<WeekScreen> {
-  late final CourseRepository repo = CourseRepository(widget.user.uid);
+  late final CourseRepository repo =
+      widget.repo ?? CourseRepository(widget.user.uid);
   late final Stream<List<Course>> courseStream = repo.watch();
   String selectedDay = 'Mon';
 

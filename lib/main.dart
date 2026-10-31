@@ -12,6 +12,11 @@ Future<void> main() async {
   runApp(const MyWeekApp());
 }
 
+final ThemeData appTheme = ThemeData(
+  useMaterial3: true,
+  colorSchemeSeed: const Color(0xFF00897B),
+);
+
 class MyWeekApp extends StatelessWidget {
   const MyWeekApp({super.key});
 
@@ -20,10 +25,7 @@ class MyWeekApp extends StatelessWidget {
     return MaterialApp(
       title: 'My Week',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: const Color(0xFF00897B),
-      ),
+      theme: appTheme,
       home: const AuthGate(),
     );
   }

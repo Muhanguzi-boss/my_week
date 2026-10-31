@@ -7,9 +7,12 @@ My Week is a weekly class planner that keeps your courses in order, adds up your
 ## Screenshots
 
 ![Login](screenshots/login.png)
-![My data in Firestore](screenshots/console.png)
 ![Live update](screenshots/live.png)
 ![Second account sees nothing of mine](screenshots/denied.png)
+![Bad times are refused](screenshots/add_course.png)
+
+The app screenshots are rendered from the real screens with sample data by
+`flutter test tool/screenshots_test.dart`.
 
 ## Features
 
@@ -36,13 +39,15 @@ lib/
   screens/week_screen.dart   day chips, totals, course list
   screens/course_screen.dart add / edit course
 test/week_rules_test.dart    unit tests for the rules
+test/widget_test.dart        widget tests (login, week, add course)
+test/fakes.dart              in-memory repository + user for tests
+tool/screenshots_test.dart   regenerates the app screenshots
 firestore.rules              security rules
 ```
 
 ## Run it yourself
 
-1. `flutter create .` (adds the android/ios folders), then
-   `flutter pub add firebase_core firebase_auth cloud_firestore`
+1. `flutter pub get` (the platform folders and Firebase packages are already in the project)
 2. Create a Firebase project, enable **Authentication → Email/Password** and **Firestore Database**.
 3. `dart pub global activate flutterfire_cli`, then `flutterfire configure` (creates `lib/firebase_options.dart`).
 4. Paste `firestore.rules` into Firestore → Rules and publish.
