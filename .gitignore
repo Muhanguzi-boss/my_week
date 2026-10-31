@@ -1,0 +1,19 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock.bak
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Keep out secrets
+.env
+*.jks
+*.keystore
+key.properties
+service-account*.json
